@@ -1,0 +1,40 @@
+<div class="h-full bg-blue-400 p-4">
+  <div class="bg-white rounded p-4 h-full flex flex-col">
+    <div class="flex-1 overflow-auto">
+      <table class="w-full">
+        <thead 
+          [ngClass]="{'bg-gray-100 sticky top-0': pedidos.length >= 2}">
+          <tr>
+            <th class="p-2 text-left">Tamaño</th>
+            <th class="p-2 text-left">Ingredientes</th>
+            <th class="p-2 text-center">Cantidad</th>
+            <th class="p-2 text-center">Subtotal</th>
+            <th class="p-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of pedidos; let i = index" class="border-b">
+            <td class="p-2">{{item.pizza.tamano}}</td>
+            <td class="p-2">{{item.pizza.ingredientes.join(', ')}}</td>
+            <td class="p-2 text-center">{{item.pizza.cantidad}}</td>
+            <td class="p-2 text-center">${{calcularSubtotal(item)}}</td>
+            <td class="p-2 text-center">
+              <button (click)="eliminarPizza(i)" class="bg-red-500 text-white px-2 py-1 rounded">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-4 pt-4 border-t flex justify-end">
+      <button 
+        (click)="terminarPedido()" 
+        class="bg-green-500 text-white px-4 py-2 rounded"
+        [disabled]="!pedidos.length">
+        Terminar Pedido
+      </button>
+    </div>
+  </div>
+</div>

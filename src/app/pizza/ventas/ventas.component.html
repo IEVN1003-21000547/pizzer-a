@@ -1,0 +1,17 @@
+<div class="p-4 bg-blue-400">
+  <div class="max-w-md mx-auto bg-white rounded p-6 shadow">
+    <div class="overflow-y-auto max-h-60 space-y-4">
+      <h6>Ventas del día</h6>
+      <div *ngFor="let venta of ventas">
+        <div class="border-b pb-2">
+          <span class="font-semibold">Cliente:</span>
+          <span class="ml-2">{{venta.nombreCliente}}</span>
+        </div>
+        <div>
+          <span class="font-semibold">Total del Pedido:</span>
+          <span class="ml-2 text-xl">${{venta.total}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

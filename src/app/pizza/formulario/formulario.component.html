@@ -1,0 +1,65 @@
+<form [formGroup]="formGroup" (ngSubmit)="agregarPizza()">
+  <div class="p-4 bg-blue-400">
+
+    <div class="grid grid-cols-3 gap-4 text-black">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" formControlName="nombre" class="border rounded p-1 w-full">
+      </div>
+      <div>
+        <label for="direccion">Dirección:</label>
+        <input id="direccion" type="text" formControlName="direccion" class="border rounded p-1 w-full">
+      </div>
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input id="telefono" type="text" formControlName="telefono" class="border rounded p-1 w-full">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mt-4">
+      <div class="bg-blue-300 p-4 rounded">
+        <h6 class="font-bold">Tamaño Pizza</h6>
+        <div class="mt-2">
+          <div>
+            <input type="radio" formControlName="tamano" value="Chica" id="chica">
+            <label for="chica"> Chica $40</label>
+          </div>
+          <div>
+            <input type="radio" formControlName="tamano" value="Mediana" id="mediana">
+            <label for="mediana"> Mediana $80</label>
+          </div>
+          <div>
+            <input type="radio" formControlName="tamano" value="Grande" id="grande">
+            <label for="grande"> Grande $120</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-300 p-4 rounded" formGroupName="ingredientes">
+        <h6 class="font-bold">Ingredientes</h6>
+        <div class="mt-2">
+          <div>
+            <input type="checkbox" formControlName="jamon" id="jamon">
+            <label for="jamon"> Jamón $10</label>
+          </div>
+          <div>
+            <input type="checkbox" formControlName="pina" id="pina">
+            <label for="pina"> Piña $10</label>
+          </div>
+          <div>
+            <input type="checkbox" formControlName="champinones" id="champinones">
+            <label for="champinones"> Champiñones $10</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-300 p-4 rounded">
+        <div class="mb-4">
+          <label for="cantidad">Cantidad:</label>
+          <input type="number" formControlName="cantidad" id="cantidad" min="1" class="w-full p-1 rounded">
+        </div>
+        <button type="submit" class="bg-white text-black p-2 rounded w-full">Agregar a la Orden</button>
+      </div>
+    </div>
+  </div>
+</form>
